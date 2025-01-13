@@ -38,8 +38,8 @@ class LogoGlitch {
 
   randomPosition() {
     // Generate random position within container bounds
-    const x = Math.random() * 200 - 100; // -100px to 100px
-    const y = Math.random() * 200 - 100; // -100px to 100px
+    const x = Math.random() * 300 - 150; // Increased range (-150px to 150px)
+    const y = Math.random() * 300 - 150; // Increased range (-150px to 150px)
     return { x, y };
   }
 
