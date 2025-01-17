@@ -5,28 +5,20 @@
 }
 
 body {
-    background: url("/background_image.jpg") no-repeat center center fixed;
-    background-size: cover;
+    background: #0000ff;
     color: white;
     font-family: 'Poppins', sans-serif;
     overflow: hidden;
 }
 
 body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.2);
-    z-index: 1;
+    display: none;
 }
 
 nav {
     position: fixed;
     width: 100%;
-    padding: 20px 40px;
+    padding: 10px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,9 +37,10 @@ nav {
     text-decoration: none;
     font-size: 24px;
     font-weight: 300;
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 2px;
+    font-family: 'Darker Grotesque', sans-serif;
+    letter-spacing: 4px;
     transition: opacity 0.3s ease;
+    text-transform: uppercase;
 }
 
 .logo a:hover {
@@ -56,17 +49,19 @@ nav {
 
 .nav-links {
     display: flex;
-    gap: 30px;
+    gap: 40px;
+    margin-right: 20px;
 }
 
 .nav-links a {
     color: white;
     text-decoration: none;
     font-size: 24px;
-    transition: all 0.3s ease;
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 2px;
     font-weight: 300;
+    font-family: 'Darker Grotesque', sans-serif;
+    letter-spacing: 4px;
+    transition: opacity 0.3s ease;
+    text-transform: uppercase;
 }
 
 .nav-links a:hover {
@@ -76,18 +71,17 @@ nav {
 .music-button {
     padding: 0;
     border: none;
-    border-radius: 0;
+    background: none;
 }
 
 .music-button:hover {
-    background: transparent;
-    color: white;
-    opacity: 0.7;
+    background: none;
 }
 
 .center-content {
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
@@ -149,11 +143,12 @@ nav {
 }
 
 .about-text h1 {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Darker Grotesque', sans-serif;
     font-size: 3rem;
     font-weight: 300;
     margin-bottom: 30px;
-    letter-spacing: 2px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
 }
 
 .about-text p {
@@ -181,6 +176,25 @@ nav {
     background: rgba(255, 255, 255, 0.5);
 }
 
+.social-links {
+   
+    margin-bottom: 100px;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.social-icon {
+    color: white;
+    font-size: 24px;
+    transition: opacity 0.3s ease;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    opacity: 0.7;
+}
+
 /* For tablets and smaller desktops */
 @media screen and (max-width: 1024px) {
     .logo-container {
@@ -202,7 +216,7 @@ nav {
 /* For tablets and large phones */
 @media screen and (max-width: 768px) {
     nav {
-        padding: 15px 20px;
+        padding: 8px 20px;
     }
 
     .logo a, .nav-links a {
@@ -241,6 +255,11 @@ nav {
     .center-content {
         margin-top: 80px;
     }
+
+    .social-links {
+        margin-top: 15px;
+        gap: 20px;
+    }
 }
 
 /* For mobile phones */
@@ -248,7 +267,7 @@ nav {
     nav {
         flex-direction: column;
         gap: 10px;
-        padding: 10px;
+        padding: 5px;
     }
 
     .logo a, .nav-links a {
@@ -301,6 +320,11 @@ nav {
         justify-content: center;
         padding-top: 60px;
     }
+
+    .social-links {
+        margin-top: 10px;
+        gap: 15px;
+    }
 }
 
 /* For very small devices */
@@ -334,7 +358,7 @@ nav {
 /* For landscape orientation on mobile */
 @media screen and (max-height: 480px) and (orientation: landscape) {
     nav {
-        padding: 10px 20px;
+        padding: 5px 20px;
     }
 
     .logo-container {
@@ -360,4 +384,10 @@ nav {
         padding-top: 40px;
         height: calc(100vh - 40px);
     }
+}
+
+/* Consistent hover effect for all nav items */
+.nav-links a:hover,
+.logo a:hover {
+    opacity: 0.7;
 }
