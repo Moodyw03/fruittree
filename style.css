@@ -376,27 +376,28 @@ nav {
     }
 }
 
-/* For landscape orientation on mobile */
+/* Update landscape orientation styles */
 @media screen and (max-height: 480px) and (orientation: landscape) {
     nav {
         padding: 5px 20px;
+        position: absolute;
+        top: 0;
     }
 
-    .logo-container {
-        width: 100%;
+    .center-content {
+        padding-top: 80px;
+        min-height: 100vh;
         height: auto;
-        padding: 10px;
-    }
-
-    .main-logo {
-        max-width: 300px;
+        display: flex;
+        flex-direction: column;
     }
 
     .about-container {
-        height: 65vh;
-        margin-top: 50px;
+        width: 90%;
+        height: auto;
+        min-height: 50vh;
+        margin: 20px auto 80px auto;
         padding: 15px;
-        margin-bottom: 60px;
     }
 
     .about-text h1 {
@@ -404,14 +405,27 @@ nav {
         margin-bottom: 10px;
     }
 
-    .center-content {
-        padding-top: 40px;
-        height: calc(100vh - 40px);
+    .social-links {
+        position: relative;
+        bottom: auto;
+        margin-top: 20px;
+        padding: 10px 0;
     }
 
-    .social-links {
-        bottom: 10px;
-        padding: 10px 0;
+    body {
+        min-height: 100vh;
+        overflow-y: auto;
+    }
+}
+
+/* Additional landscape styles for larger screens */
+@media screen and (min-height: 481px) and (max-height: 600px) and (orientation: landscape) {
+    .center-content {
+        padding-top: 60px;
+    }
+
+    .about-container {
+        margin: 20px auto 60px auto;
     }
 }
 
@@ -428,3 +442,4 @@ nav {
 .logo a:hover {
     opacity: 0.7;
 }
+
