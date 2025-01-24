@@ -385,7 +385,7 @@ nav {
     }
 
     .center-content {
-        padding-top: 80px;
+        padding-top: 60px;
         min-height: 100vh;
         height: auto;
         display: flex;
@@ -395,9 +395,15 @@ nav {
     .about-container {
         width: 90%;
         height: auto;
-        min-height: 50vh;
-        margin: 20px auto 80px auto;
+        min-height: 45vh;
+        margin: 20px auto;
         padding: 15px;
+        overflow: auto;
+    }
+
+    .about-text {
+        max-height: 45vh;
+        overflow-y: auto;
     }
 
     .about-text h1 {
@@ -406,15 +412,9 @@ nav {
     }
 
     .social-links {
-        position: relative;
-        bottom: auto;
-        margin-top: 20px;
-        padding: 10px 0;
-    }
-
-    body {
-        min-height: 100vh;
-        overflow-y: auto;
+        position: fixed;
+        bottom: 20px;
+        margin: 0;
     }
 }
 

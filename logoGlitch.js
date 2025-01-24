@@ -67,27 +67,75 @@ class LogoGlitch {
     const micButton = document.createElement("button");
     micButton.textContent = "Enable Audio Reactive";
     micButton.style.cssText = `
-      position: absolute;
-      bottom: 100px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 10px 20px;
-      background: none;
-      border: 1px solid white;
-      color: white;
-      font-family: 'Darker Grotesque', sans-serif;
-      cursor: pointer;
-      z-index: 1000;
-      transition: opacity 0.3s ease;
+        position: fixed;
+        bottom: 120px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px 20px;
+        background: none;
+        border: 1px solid white;
+        color: white;
+        font-family: 'Darker Grotesque', sans-serif;
+        font-size: 16px;
+        letter-spacing: 2px;
+        cursor: pointer;
+        z-index: 1000;
+        transition: all 0.3s ease;
     `;
-    micButton.addEventListener(
-      "mouseenter",
-      () => (micButton.style.opacity = "0.7")
-    );
-    micButton.addEventListener(
-      "mouseleave",
-      () => (micButton.style.opacity = "1")
-    );
+
+    // Add responsive positioning with media queries
+    const style = document.createElement("style");
+    style.textContent = `
+        @media screen and (max-width: 768px) {
+            button[data-mic-button] {
+                bottom: 110px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            button[data-mic-button] {
+                bottom: 100px;
+            }
+        }
+        
+        @media screen and (max-height: 480px) and (orientation: landscape) {
+            button[data-mic-button] {
+                position: fixed;
+                bottom: 90px !important;
+                top: auto;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 14px;
+                padding: 8px 16px;
+                z-index: 1001;
+            }
+        }
+
+        @media screen and (max-height: 380px) and (orientation: landscape) {
+            button[data-mic-button] {
+                bottom: 80px !important;
+            }
+        }
+
+        @media screen and (max-height: 320px) and (orientation: landscape) {
+            button[data-mic-button] {
+                bottom: 70px !important;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Add data attribute for targeting in media queries
+    micButton.setAttribute("data-mic-button", "");
+
+    micButton.addEventListener("mouseenter", () => {
+      micButton.style.opacity = "0.7";
+      micButton.style.transform = "translateX(-50%) scale(1.05)";
+    });
+    micButton.addEventListener("mouseleave", () => {
+      micButton.style.opacity = "1";
+      micButton.style.transform = "translateX(-50%) scale(1)";
+    });
     micButton.addEventListener("click", () => this.initAudio());
     document.body.appendChild(micButton);
 
