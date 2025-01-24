@@ -144,15 +144,9 @@ class LogoGlitch {
       }
     });
 
-    // Move original only with strong audio
-    if (audioLevel > 0.3 && Math.random() < 0.15 * intensity) {
-      const smallOffset = Math.random() * 20 * intensity - 10 * intensity;
-      this.original.style.opacity = 0.8 + Math.random() * 0.2;
-      this.original.style.transform = `translateX(${smallOffset}px)`;
-    } else {
-      this.original.style.opacity = "1";
-      this.original.style.transform = "translateX(0)";
-    }
+    // Remove movement of original logo
+    this.original.style.opacity = "1";
+    this.original.style.transform = "translateX(0)";
   }
 
   randomPosition(intensity = 1) {
@@ -215,15 +209,16 @@ class LogoGlitch {
     }
   }
 
-  // Add new method to reset glitch state
+  // Update reset method to ensure original logo stays in place
   resetGlitch() {
     this.glitchImages.forEach((img) => {
       img.style.opacity = "0";
       img.style.transform = "translate(0, 0) scale(1)";
       img.style.filter = "none";
     });
+    // Keep original logo stable
     this.original.style.opacity = "1";
-    this.original.style.transform = "translateX(0)";
+    this.original.style.transform = "none";
   }
 }
 
